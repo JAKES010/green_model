@@ -1,0 +1,16 @@
+# Python environment & cache
+.venv/
+__pycache__/
+*.pyc
+
+# Dataset & downloaded binaries (avoids pushing gigabytes of images)
+dataset/
+*.zip
+
+# Trained model weights
+*.pth
+
+# Sensitive API Keys & Tokens
+.kaggle/
+kaggle.json
+access_token
