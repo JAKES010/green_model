@@ -13,7 +13,13 @@ image_transforms = transforms.Compose([
 
 def get_data_loader(data_dir, batch_size=32, shuffle=True):
     dataset = datasets.ImageFolder(root=data_dir, transform=image_transforms)
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+    loader = DataLoader(
+        dataset, 
+        batch_size=batch_size, 
+        shuffle=shuffle,
+        num_workers=0,      # Set to 0 to prevent CPU multi-process hanging
+        pin_memory=False    # Prevents memory locking issues on CPU
+    )
     return dataset, loader
     
 if __name__ == "__main__":
